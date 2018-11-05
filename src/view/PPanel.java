@@ -7,8 +7,10 @@ import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import javax.swing.JToggleButton;
 
 import blogic.Person;
 import blogic.PersonDM;
@@ -43,6 +45,13 @@ public class PPanel extends JPanel
 		JButton UpdateButton = new JButton("update");
 		JButton DeleteButton = new JButton("delete");
 		JTable DataTable = new JTable();  
+		
+		JRadioButton radioMySQL = new JRadioButton("MySQL");
+		JRadioButton radioH2 = new JRadioButton("H2");
+		JRadioButton radioJSON = new JRadioButton("JSON");
+		JRadioButton radioXML = new JRadioButton("XML");
+		JRadioButton radioYAML = new JRadioButton("YAML");
+		JRadioButton radioCSV = new JRadioButton("CSV");
 		
 		JTextField fildeID = new JTextField();
 		JTextField fildeFirstName = new JTextField();
@@ -102,6 +111,13 @@ public class PPanel extends JPanel
 		add(fildeLastName);
 		add(fildeAge);
 		add(DataTable);
+		
+		add(radioH2);
+		add(radioMySQL);
+		add(radioCSV);
+		add(radioJSON);
+		add(radioYAML);
+		add(radioXML);
 	}
 
 	public JTextField getFildeID() {
