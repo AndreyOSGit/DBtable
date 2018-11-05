@@ -1,0 +1,37 @@
+package blogic;
+
+
+
+public class Person {
+
+	public int id;
+	public String firstName;
+	public String lastName;
+	public int age;
+	
+	public Person()
+	{	
+	}
+	
+	public Person(int id, String firstName, String lastName, int age)
+	{
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+	}
+	
+	@Override
+	public String toString() {
+	
+		String out = new String();
+		out += Integer.toString(id)+ ", " +
+				firstName + ", " +
+				lastName + ", " +
+				Integer.toString(age);
+		
+		return out;
+	}
+	
+	
+}
