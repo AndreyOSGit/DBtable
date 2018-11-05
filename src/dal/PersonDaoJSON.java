@@ -1,5 +1,8 @@
 package dal;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,23 +20,34 @@ public class PersonDaoJSON implements iPersonDao {
 	@Override
 	public void create(Person p) throws Exception {
 	
-		Class.forName("org.h2.Driver");
 		
-		Connection conH2 = DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
-	
-		Statement st = conH2.createStatement();
+	    String filename = "PersonSerealized.XML";
+	         
+	         FileOutputStream fos = null;
+	         ObjectOutputStream out = null;
+	         try
+	         {
+	           fos = new FileOutputStream(filename);
+	           out = new ObjectOutputStream(fos);
+	           out.writeObject(p);
+	           out.close();
+	         }
+	         catch(IOException ex)
+	         {
+	           ex.printStackTrace();
+	         }
 		
-		ResultSet rs = st.executeQuery("SELECT * FROM PERSON");
+//		ResultSet rs = st.executeQuery("SELECT * FROM PERSON");
 		
 
-			st.executeUpdate(
-					"INSERT INTO PERSON VALUES( "
-					+ String.valueOf(p.id) + ", " 
-					+ "' " +String.valueOf(p.firstName) + "', " 
-					+ "' " +String.valueOf(p.lastName) + "', " 
-					+ String.valueOf(p.age) + " );"
-					
-					);
+//			st.executeUpdate(
+//					"INSERT INTO PERSON VALUES( "
+//					+ String.valueOf(p.id) + ", " 
+//					+ "' " +String.valueOf(p.firstName) + "', " 
+//					+ "' " +String.valueOf(p.lastName) + "', " 
+//					+ String.valueOf(p.age) + " );"
+//					
+//					);
 		 
 		
 	}

@@ -17,7 +17,7 @@ public class PersonDM extends AbstractTableModel {
 	
 	iPersonDao dao;
 	
-	PPanel some;
+	public PPanel panelBD;
 	
 	public ActionCreate aCreate = new ActionCreate();
 	public ActionRead aRead = new ActionRead();
@@ -36,7 +36,7 @@ public class PersonDM extends AbstractTableModel {
 	
 	public PersonDM() {
 		pp = new ArrayList<Person>();
-//		
+
 //		aCreate = new ActionCreate();
 //		aRead = new ActionRead();
 //		aDelete = new ActionDelete();
@@ -111,6 +111,8 @@ public class PersonDM extends AbstractTableModel {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			System.out.println("create");
+			System.out.println(	panelBD.getFildeID() );
+			
 		}
 		
 	}
@@ -120,6 +122,7 @@ public class PersonDM extends AbstractTableModel {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			System.out.println("update");
+			
 			//read  
 		}
 		
@@ -129,7 +132,7 @@ public class PersonDM extends AbstractTableModel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			
+			System.out.println(	panelBD.getFildeID() );
 			System.out.println("read");	
 		}
 		
@@ -140,27 +143,27 @@ public class PersonDM extends AbstractTableModel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			System.out.println("delete");
-			getPersonaFromUI(some);
+			 
 			
 		}
 		
 	}
 	
-	private Person getPersonaFromUI(PPanel some)
+	private Person getPersonaFromUI(PPanel panelBD)
 	{
 		
 		
 		Person p = new Person(
-				Integer.parseInt(  some.fildeID.getText() ),
-				some.fildeFirstName.getText(), 
-				some.fildeLastName.getText(), 
-				Integer.parseInt( some.fildeAge.getText() )
+				Integer.parseInt(  panelBD.getFildeID().getText() ),
+				panelBD.fildeFirstName.getText(), 
+				panelBD.fildeLastName.getText(), 
+				Integer.parseInt( panelBD.fildeAge.getText() )
 				);
 		System.out.println(
-				Integer.parseInt(  some.fildeID.getText() ) +
-				some.fildeFirstName.getText() +
-				some.fildeLastName.getText() +
-				Integer.parseInt( some.fildeAge.getText() )
+				Integer.parseInt(  panelBD.fildeID.getText() ) +
+				panelBD.fildeFirstName.getText() +
+				panelBD.fildeLastName.getText() +
+				Integer.parseInt( panelBD.fildeAge.getText() )
 				);
 		return p;
 		

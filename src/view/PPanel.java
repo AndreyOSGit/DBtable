@@ -18,10 +18,10 @@ import blogic.PersonDM;
 public class PPanel extends JPanel
 {
 	
-	JButton CreateButton;
-	JButton ReadButton;
-	JButton UpdateButton;
-	JButton DeleteButton;
+	public JButton CreateButton;
+	public JButton ReadButton;
+	public JButton UpdateButton;
+	public JButton DeleteButton;
 
 	public JTextField fildeID;
 	public JTextField fildeFirstName;
@@ -64,6 +64,14 @@ public class PPanel extends JPanel
 		UpdateButton.setBounds(630, 110, 120, 30);
 		DeleteButton.setBounds(630, 140, 120, 30);
 		
+		radioH2.setBounds(630, 170, 90, 30);
+		radioJSON.setBounds(630, 200, 90, 30);
+		radioCSV.setBounds(630, 230, 90, 30);
+		radioMySQL.setBounds(630, 260, 90, 30);
+		radioXML.setBounds(630, 290, 90, 30);
+		radioYAML.setBounds(630, 320, 90, 30);
+		
+		
 		DataTable.setBounds(2,2,500,600);
 		fildeID.setBounds(520, 50, 120, 30);
 		fildeFirstName.setBounds(520, 80, 120, 30);
@@ -80,27 +88,17 @@ public class PPanel extends JPanel
 		fildeLastName.setName("lastname");
 		fildeAge.setName("age");
 		
-		
 		CreateButton.setActionCommand( "create");
 		ReadButton.setActionCommand("read");
 		UpdateButton.setActionCommand("update");
 		DeleteButton.setActionCommand("delete");
 		
 		
-		CreateButton.addActionListener(PDM.getaCreate());
+		CreateButton.addActionListener(PDM.aCreate);
 		ReadButton.addActionListener(PDM.getaRead());
 		UpdateButton.addActionListener(PDM.getaUpdate());
 		DeleteButton.addActionListener(PDM.getaDelete());
 		
-//		DeleteButton.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				
-//				// разобрать как  
-//				
-//			}
-//		});
 		
 		add(CreateButton);
 		add(ReadButton);
@@ -118,9 +116,11 @@ public class PPanel extends JPanel
 		add(radioJSON);
 		add(radioYAML);
 		add(radioXML);
+		
 	}
 
 	public JTextField getFildeID() {
+		
 		return fildeID;
 	}
 
