@@ -19,12 +19,27 @@ public class PersonDM extends AbstractTableModel {
 	
 	public PPanel panelBD;
 	
-	public ActionCreate aCreate = new ActionCreate();
-	public ActionRead aRead = new ActionRead();
-	public ActionDelete aDelete = new ActionDelete();
-	public ActionUpdate aUpdate = new ActionUpdate();
+	public ActionCreate aCreate;
+	public ActionRead aRead;
+	public ActionDelete aDelete;
+	public ActionUpdate aUpdate;
 	
-//	public static getPresonDM getInstance() 
+	public PersonDM() {
+		pp = new ArrayList<Person>();
+	}
+	public PersonDM(PPanel pPanel) {
+		pp = new ArrayList<Person>();
+		
+		panelBD = pPanel;
+
+	 aCreate = new ActionCreate();
+	 aRead = new ActionRead();
+	 aDelete = new ActionDelete();
+	 aUpdate = new ActionUpdate();
+	}
+	
+	
+	//	public static getPresonDM getInstance() 
 //	{
 //		if (instance == null)
 //		{
@@ -34,14 +49,6 @@ public class PersonDM extends AbstractTableModel {
 //		return instance;
 //	}
 	
-	public PersonDM() {
-		pp = new ArrayList<Person>();
-
-//		aCreate = new ActionCreate();
-//		aRead = new ActionRead();
-//		aDelete = new ActionDelete();
-//		aUpdate = new ActionUpdate();
-	}
 
 	public ActionCreate getaCreate() {
 		return aCreate;
@@ -75,12 +82,6 @@ public class PersonDM extends AbstractTableModel {
 		this.aUpdate = aUpdate;
 	}
 
-	
-	
-	public PersonDM(PPanel pPanel) {
-		// TODO Auto-generated constructor stub
-	}
-
 	public String getColumnName(int index) {
 		
 		String colName = "";
@@ -109,9 +110,10 @@ public class PersonDM extends AbstractTableModel {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
+
+			
 			System.out.println("create");
-			System.out.println(	panelBD.getFildeID() );
+
 			
 		}
 		
@@ -120,10 +122,8 @@ public class PersonDM extends AbstractTableModel {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
 			System.out.println("update");
-			
-			//read  
+		  
 		}
 		
 	}
@@ -132,7 +132,6 @@ public class PersonDM extends AbstractTableModel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			System.out.println(	panelBD.getFildeID() );
 			System.out.println("read");	
 		}
 		
@@ -143,15 +142,15 @@ public class PersonDM extends AbstractTableModel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			System.out.println("delete");
-			 
-			
+		Person p = getPersonaFromUI(panelBD);
+				
 		}
 		
 	}
 	
+	
 	private Person getPersonaFromUI(PPanel panelBD)
 	{
-		
 		
 		Person p = new Person(
 				Integer.parseInt(  panelBD.getFildeID().getText() ),
@@ -160,10 +159,10 @@ public class PersonDM extends AbstractTableModel {
 				Integer.parseInt( panelBD.fildeAge.getText() )
 				);
 		System.out.println(
-				Integer.parseInt(  panelBD.fildeID.getText() ) +
-				panelBD.fildeFirstName.getText() +
-				panelBD.fildeLastName.getText() +
-				Integer.parseInt( panelBD.fildeAge.getText() )
+				Integer.parseInt(  panelBD.fildeID.getText() )
+			+ "|" +	panelBD.fildeFirstName.getText()
+			+ "|" +	panelBD.fildeLastName.getText() 
+			+ "|" +	Integer.parseInt( panelBD.fildeAge.getText() )
 				);
 		return p;
 		

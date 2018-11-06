@@ -27,12 +27,23 @@ public class PPanel extends JPanel
 	public JTextField fildeFirstName;
 	public JTextField fildeLastName;
 	public JTextField fildeAge;
+
+	JRadioButton radioMySQL ;
+	JRadioButton radioH2 ;
+	JRadioButton radioJSON ;
+	JRadioButton radioXML ;
+	JRadioButton radioYAML ;
+	JRadioButton radioCSV ;
+	
+	JTable DataTable;
+
+	
+	
 	
 	PersonDM PDM; 
 	
 	public PPanel() 
 	{	
-		PDM = new PersonDM(this);
 		
 		
 		setLayout(null);	
@@ -40,23 +51,25 @@ public class PPanel extends JPanel
 		setBackground(Color.RED);
 		setBounds(620, 10, 150, 400 );
 
-		JButton CreateButton = new JButton("create");
-		JButton ReadButton = new JButton("read");
-		JButton UpdateButton = new JButton("update");
-		JButton DeleteButton = new JButton("delete");
-		JTable DataTable = new JTable();  
+		 CreateButton = new JButton("create");
+		 ReadButton = new JButton("read");
+		 UpdateButton = new JButton("update");
+		 DeleteButton = new JButton("delete");
+		 DataTable = new JTable();  
 		
-		JRadioButton radioMySQL = new JRadioButton("MySQL");
-		JRadioButton radioH2 = new JRadioButton("H2");
-		JRadioButton radioJSON = new JRadioButton("JSON");
-		JRadioButton radioXML = new JRadioButton("XML");
-		JRadioButton radioYAML = new JRadioButton("YAML");
-		JRadioButton radioCSV = new JRadioButton("CSV");
+		 radioMySQL = new JRadioButton("MySQL");
+		 radioH2 = new JRadioButton("H2");
+		 radioJSON = new JRadioButton("JSON");
+		 radioXML = new JRadioButton("XML");
+		 radioYAML = new JRadioButton("YAML");
+		 radioCSV = new JRadioButton("CSV");
 		
-		JTextField fildeID = new JTextField();
-		JTextField fildeFirstName = new JTextField();
-		JTextField fildeLastName = new JTextField();
-		JTextField fildeAge = new JTextField();
+		 fildeID = new JTextField("");
+		 fildeFirstName = new JTextField("");
+		 fildeLastName = new JTextField("");
+		 fildeAge = new JTextField("");
+		
+		PDM = new PersonDM(this);
 		
 		
 		CreateButton.setBounds(630, 50, 120, 30);
@@ -73,6 +86,7 @@ public class PPanel extends JPanel
 		
 		
 		DataTable.setBounds(2,2,500,600);
+		
 		fildeID.setBounds(520, 50, 120, 30);
 		fildeFirstName.setBounds(520, 80, 120, 30);
 		fildeLastName.setBounds(520, 110, 120, 30);
@@ -94,7 +108,7 @@ public class PPanel extends JPanel
 		DeleteButton.setActionCommand("delete");
 		
 		
-		CreateButton.addActionListener(PDM.aCreate);
+		CreateButton.addActionListener(PDM.getaCreate());
 		ReadButton.addActionListener(PDM.getaRead());
 		UpdateButton.addActionListener(PDM.getaUpdate());
 		DeleteButton.addActionListener(PDM.getaDelete());
