@@ -6,7 +6,9 @@ import java.rmi.activation.ActivationSystem;
 import java.util.ArrayList;
 
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.DefaultTableModel;
 
+import dal.PersonDaoH2;
 import dal.iPersonDao;
 import view.PPanel;
 
@@ -16,6 +18,8 @@ public class PersonDM extends AbstractTableModel {
 	private ArrayList<Person> pp;
 	
 	iPersonDao dao;
+	
+	PersonDaoH2 daoh2;
 	
 	public PPanel panelBD;
 	
@@ -106,12 +110,29 @@ public class PersonDM extends AbstractTableModel {
 		return null;
 	}
 	
+	public void setDataInTable(ArrayList<Person> pp) {
+		
+		  Object[] row = { pp.get(0).id
+				  , pp.get(0).firstName
+				  , pp.get(0).lastName
+				  , pp.get(0).age };
+
+		    DefaultTableModel model = (DefaultTableModel) panelBD.getDataTable().getModel();
+
+		    model.addRow(row);
+		
+		
+	}
 	class ActionCreate implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-
-			
+			Person p = getPersonaFromUI(panelBD);
+			try {
+				daoh2.create(p);
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 			System.out.println("create");
 
 			
@@ -122,6 +143,13 @@ public class PersonDM extends AbstractTableModel {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			
+			Person p = getPersonaFromUI(panelBD);
+			try {
+				daoh2.update(p);
+			} catch (Exception e1) {
+				e1.printStackTrace();
+			}
 			System.out.println("update");
 		  
 		}
@@ -131,7 +159,15 @@ public class PersonDM extends AbstractTableModel {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
+			
+			Person p = getPersonaFromUI(panelBD);
+			try {
+			pp = daoh2.read();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 			System.out.println("read");	
 		}
 		
@@ -142,8 +178,13 @@ public class PersonDM extends AbstractTableModel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			System.out.println("delete");
-		Person p = getPersonaFromUI(panelBD);
-				
+			Person p = getPersonaFromUI(panelBD);
+				try {
+					daoh2.delete(p);
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 		}
 		
 	}

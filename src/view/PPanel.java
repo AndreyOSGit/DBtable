@@ -36,10 +36,11 @@ public class PPanel extends JPanel
 	JRadioButton radioCSV ;
 	
 	JTable DataTable;
+	
+	public JTable getDataTable() {
+		return DataTable;
+	}
 
-	
-	
-	
 	PersonDM PDM; 
 	
 	public PPanel() 
