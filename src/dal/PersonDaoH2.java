@@ -11,6 +11,13 @@ import blogic.Person;
 
 public class PersonDaoH2 implements iPersonDao {
 
+	/*Code tips
+	 * 
+	 * Закрыть надо 1) result set 2) Statment 3) Connection
+	 *  
+	 */
+	
+	
 	private ArrayList<Person> pp;
 	
 	
@@ -34,7 +41,7 @@ public class PersonDaoH2 implements iPersonDao {
 					+ String.valueOf(p.age) + " );"
 					
 					);
-		 
+	
 		
 	}
 

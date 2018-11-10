@@ -4,5 +4,12 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/h2/bin/h2-1.4.197.jar"/>
 	<classpathentry kind="lib" path="C:/mysql-connector-java-8.0.13.jar"/>
+	<classpathentry kind="lib" path="lib/Hibernate/antlr-2.7.6.jar"/>
+	<classpathentry kind="lib" path="lib/Hibernate/commons-collections-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/Hibernate/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="lib/Hibernate/hibernate3.jar"/>
+	<classpathentry kind="lib" path="lib/Hibernate/javassist-3.12.0.GA.jar"/>
+	<classpathentry kind="lib" path="lib/Hibernate/jta-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/Hibernate/slf4j-api-1.6.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

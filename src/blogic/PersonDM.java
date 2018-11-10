@@ -189,6 +189,10 @@ public class PersonDM extends AbstractTableModel {
 		
 	}
 	
+	private void select(String cmd)
+	{
+		
+	}
 	
 	private Person getPersonaFromUI(PPanel panelBD)
 	{
