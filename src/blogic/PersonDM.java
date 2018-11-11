@@ -5,8 +5,12 @@ import java.awt.event.ActionListener;
 import java.rmi.activation.ActivationSystem;
 import java.util.ArrayList;
 
+import javax.swing.event.TableModelEvent;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
+import org.hibernate.mapping.Table;
 
 import dal.PersonDaoH2;
 import dal.iPersonDao;
@@ -162,11 +166,14 @@ public class PersonDM extends AbstractTableModel {
 			
 			Person p = getPersonaFromUI(panelBD);
 			try {
-			pp = daoh2.read();
+//			pp = daoh2.read();
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
+			Person p1 = new Person(1,"Man","Good",33);
+			pp.set(0, p1);
+			setDataInTable(pp);
 			
 			System.out.println("read");	
 		}
